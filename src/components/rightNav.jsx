@@ -9,6 +9,7 @@ import {
 import qZoneOne from '../assets/qZone1.png';
 import qZoneTwo from '../assets/qZone2.png';
 import qZoneThree from '../assets/qZone3.png';
+
 import { useContext } from 'react';
 import { AppContext } from '../context/useContext';
 

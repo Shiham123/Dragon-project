@@ -4,6 +4,8 @@ import ErrorPage from '../pages/error';
 import Home from '../pages/home';
 import Career from '../pages/career';
 import About from '../pages/about';
+import LoginPage from '../pages/login';
+import Register from '../pages/register';
 
 const routes = createBrowserRouter([
   {
@@ -14,6 +16,8 @@ const routes = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/career', element: <Career /> },
       { path: '/about', element: <About /> },
+      { path: '/login', element: <LoginPage /> },
+      { path: '/register', element: <Register /> },
     ],
   },
 ]);
