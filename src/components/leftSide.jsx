@@ -1,5 +1,7 @@
+import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { BsCalendarEvent } from 'react-icons/bs';
 
 const LeftSideNav = () => {
   const [categories, setCategories] = useState([]);
@@ -20,12 +22,14 @@ const LeftSideNav = () => {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl">All Categories</h2>
+      <h2 className="text-[20x] text-black leading-[30px] font-bold">
+        All Categories
+      </h2>
       {categories.map((category) => {
         const { id, name } = category;
         return (
           <Link
-            className="block ml-4 text-xl font-semibold"
+            className="block ml-4 text-[20px] leading-[30px] font-medium text-grayOne"
             key={id}
             to={`/category/${id}`}
           >
@@ -46,9 +50,17 @@ const LeftSideNav = () => {
                 {title}
               </h1>
               <img src={image_url} alt="" />
-              <p className="text-[16px] font-medium py-4">
-                {matchCategory && <span>{matchCategory.name}</span>}
-              </p>
+              <div className="flex justify-between items-center">
+                <p className="text-[16px] font-medium py-4">
+                  {matchCategory && <span>{matchCategory.name}</span>}
+                </p>
+                <div className="flex justify-center items-center gap-1">
+                  <BsCalendarEvent />
+                  <p className="text-[16px] leading-26px font-medium text-grayOne">
+                    {moment().format('MMM D, YYYY')}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}

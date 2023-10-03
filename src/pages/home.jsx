@@ -27,7 +27,9 @@ const Home = () => {
           <LeftSideNav />
         </div>
         <div className="lg:col-span-2">
-          <h2 className="text-4xl">Dragon news home</h2>
+          <h2 className="text-[20px] font-bold leading-[30px] text-black">
+            Dragon news home
+          </h2>
           {newsData &&
             newsData.map((data) => {
               const { title, _id, image_url, details, total_view } = data;

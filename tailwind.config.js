@@ -8,6 +8,7 @@ export default withMT({
     colors: {
       black: '#403F3F',
       gray: '#706F6F',
+      grayOne: '#9F9F9F',
     },
     extend: {
       fontFamily: {
