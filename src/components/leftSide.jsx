@@ -1,6 +1,5 @@
 import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { BsCalendarEvent } from 'react-icons/bs';
 
 const LeftSideNav = () => {
@@ -20,6 +19,10 @@ const LeftSideNav = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleClick = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className="space-y-4">
       <h2 className="text-[20x] text-black leading-[30px] font-bold">
@@ -28,13 +31,16 @@ const LeftSideNav = () => {
       {categories.map((category) => {
         const { id, name } = category;
         return (
-          <Link
+          <button
             className="block ml-4 text-[20px] leading-[30px] font-medium text-grayOne"
             key={id}
-            to={`/category/${id}`}
+            // to={`/category/${id}`}
+            onClick={() => {
+              handleClick(id);
+            }}
           >
             {name}
-          </Link>
+          </button>
         );
       })}
       <div className="pt-12">

@@ -8,7 +8,6 @@ import LoginPage from '../pages/login';
 import Register from '../pages/register';
 import Details from '../pages/details';
 import PrivateRoute from './privateRoute';
-import Category from '../pages/category';
 
 const routes = createBrowserRouter([
   {
@@ -30,7 +29,6 @@ const routes = createBrowserRouter([
         ),
         loader: () => fetch('/news.json'),
       },
-      { path: '/category/:id', element: <Category /> },
     ],
   },
 ]);
