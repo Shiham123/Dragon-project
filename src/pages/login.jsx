@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
 
 import { Card, Input, Button, Typography } from '@material-tailwind/react';
@@ -7,6 +7,9 @@ import { AppContext } from '../context/useContext';
 
 const LoginPage = () => {
   const context = useContext(AppContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { logInEmailPassword } = context;
 
   const handleSubmit = (event) => {
@@ -17,7 +20,10 @@ const LoginPage = () => {
     const passwordValue = formData.get('password');
 
     logInEmailPassword(emailValue, passwordValue)
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        navigate(location?.state ? location.state : '/');
+      })
       .catch((error) => console.log(error));
   };
 
