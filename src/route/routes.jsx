@@ -21,12 +21,13 @@ const routes = createBrowserRouter([
       { path: '/login', element: <LoginPage /> },
       { path: '/register', element: <Register /> },
       {
-        path: '/details',
+        path: '/details/:id',
         element: (
           <PrivateRoute>
             <Details />
           </PrivateRoute>
         ),
+        loader: () => fetch('/news.json'),
       },
     ],
   },

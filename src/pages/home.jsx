@@ -47,7 +47,7 @@ const Home = () => {
                   {details.length > 200 ? (
                     <p className="text-[16px] font-normal leading-[36px] text-gray">
                       {details.slice(0, 200)}
-                      <Link to="/details">
+                      <Link to={`/details/${_id}`}>
                         <span className="text-green-500 uppercase font-semibold cursor-pointer px-2">
                           Read more
                         </span>
