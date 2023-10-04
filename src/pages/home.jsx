@@ -7,16 +7,32 @@ import RightSideNav from '../components/rightNav';
 
 import { AiFillEye } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const Home = () => {
+  const [originalNewsData, setOriginalNewsData] = useState([]);
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
     fetch('/news.json')
       .then((response) => response.json())
-      .then((data) => setNewsData(data))
+      .then((data) => {
+        setOriginalNewsData(data);
+        setNewsData(data);
+      })
       .catch((error) => console.log(error));
   }, []);
+
+  const categoryId = (id) => {
+    const filterData = originalNewsData.filter(
+      (data) => data.category_id === id
+    );
+    setNewsData(filterData);
+    swal({
+      text: `Filter category based on id ${id}`,
+      icon: 'success',
+    });
+  };
 
   return (
     <div>
@@ -25,7 +41,7 @@ const Home = () => {
       <Navbar />
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div>
-          <LeftSideNav />
+          <LeftSideNav categoryId={categoryId} />
         </div>
         <div className="lg:col-span-2">
           <h2 className="text-[20px] font-bold leading-[30px] text-black">

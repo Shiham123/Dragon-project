@@ -2,7 +2,9 @@ import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
 import { BsCalendarEvent } from 'react-icons/bs';
 
-const LeftSideNav = () => {
+const LeftSideNav = (props) => {
+  const { categoryId } = props;
+
   const [categories, setCategories] = useState([]);
   const [newsData, setNewsData] = useState([]);
 
@@ -20,7 +22,7 @@ const LeftSideNav = () => {
   }, []);
 
   const handleClick = (id) => {
-    console.log(id);
+    categoryId(id);
   };
 
   return (
