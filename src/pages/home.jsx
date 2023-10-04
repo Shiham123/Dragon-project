@@ -6,6 +6,7 @@ import Navbar from '../components/navbar';
 import RightSideNav from '../components/rightNav';
 
 import { AiFillEye } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [newsData, setNewsData] = useState([]);
@@ -42,9 +43,22 @@ const Home = () => {
                     {title}
                   </h1>
                   <img src={image_url} alt="" />
-                  <p className="text-[16px] font-normal leading-[36px] text-gray">
-                    {details}
-                  </p>
+
+                  {details.length > 200 ? (
+                    <p className="text-[16px] font-normal leading-[36px] text-gray">
+                      {details.slice(0, 200)}
+                      <Link to="/details">
+                        <span className="text-green-500 uppercase font-semibold cursor-pointer px-2">
+                          Read more
+                        </span>
+                      </Link>
+                    </p>
+                  ) : (
+                    <p className="text-[16px] font-normal leading-[36px] text-gray">
+                      {details}
+                    </p>
+                  )}
+
                   <br />
                   <hr className="opacity-20" />
                   <div className="flex justify-between my-4">

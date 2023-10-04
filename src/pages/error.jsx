@@ -1,5 +1,14 @@
+import Header from '../components/header';
+import Navbar from '../components/navbar';
+
 const ErrorPage = () => {
-  return <div>this is error page</div>;
+  return (
+    <>
+      <Header />
+      <Navbar />
+      <h1 className="text-5xl font-extrabold">this is error page</h1>
+    </>
+  );
 };
 
 export default ErrorPage;

@@ -18,6 +18,7 @@ const AppProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const googleSignIn = () => {
     return signInWithPopup(globalAuth, googleProvider);
@@ -61,6 +62,7 @@ const AppProvider = ({ children }) => {
     signInEmailPassword,
     emailVerification,
     logInEmailPassword,
+    loading,
   };
 
   return <AppContext.Provider value={info}>{children}</AppContext.Provider>;
