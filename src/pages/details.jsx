@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import RightSideNav from '../components/rightNav';
@@ -31,10 +31,12 @@ const Details = () => {
               </p>
             </div>
           )}
-          <button className="bg-[#D72050] text-white py-2 px-4 my-4 text-[20px] leading-[30px] font-medium flex justify-center items-center gap-6">
-            <AiOutlineArrowLeft />
-            <span>All news in this category</span>
-          </button>
+          <Link to="/">
+            <button className="bg-[#D72050] text-white py-2 px-4 my-4 text-[20px] leading-[30px] font-medium flex justify-center items-center gap-6">
+              <AiOutlineArrowLeft />
+              <span>All news in this category</span>
+            </button>
+          </Link>
           <Footer />
         </div>
         <RightSideNav />
