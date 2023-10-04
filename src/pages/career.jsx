@@ -1,5 +1,13 @@
+import Header from '../components/header';
+import Navbar from '../components/navbar';
+
 const Career = () => {
-  return <div>this is career routes</div>;
+  return (
+    <>
+      <Header />
+      <Navbar />
+    </>
+  );
 };
 
 export default Career;

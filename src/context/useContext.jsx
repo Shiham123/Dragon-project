@@ -1,7 +1,10 @@
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
@@ -24,6 +27,18 @@ const AppProvider = ({ children }) => {
     return signInWithPopup(globalAuth, githubProvider);
   };
 
+  const signInEmailPassword = (email, password) => {
+    return createUserWithEmailAndPassword(globalAuth, email, password);
+  };
+
+  const logInEmailPassword = (email, password) => {
+    return signInWithEmailAndPassword(globalAuth, email, password);
+  };
+
+  const emailVerification = () => {
+    return sendEmailVerification(globalAuth.currentUser);
+  };
+
   const logOut = () => {
     return signOut(globalAuth);
   };
@@ -38,7 +53,15 @@ const AppProvider = ({ children }) => {
     };
   }, []);
 
-  const info = { googleSignIn, user, logOut, githubSignIn };
+  const info = {
+    googleSignIn,
+    user,
+    logOut,
+    githubSignIn,
+    signInEmailPassword,
+    emailVerification,
+    logInEmailPassword,
+  };
 
   return <AppContext.Provider value={info}>{children}</AppContext.Provider>;
 };

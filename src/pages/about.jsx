@@ -1,5 +1,13 @@
+import Header from '../components/header';
+import Navbar from '../components/navbar';
+
 const About = () => {
-  return <div>this is about routes</div>;
+  return (
+    <>
+      <Header />
+      <Navbar />
+    </>
+  );
 };
 
 export default About;
